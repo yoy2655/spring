@@ -44,10 +44,10 @@
 
 //IoC컨테이너 종류
 //A.BeanFactory : 스프링컨테이너의 최상위 인터페이스
-//				: 스프링 빈을 관리, 조회
+// : 스프링 빈을 관리, 조회
 //(ClassPathResource, XmlBeanFactory)
 //B.ApplicationContext : BeanFactory상속받아 제공
-//					   : 스프링 빈을 관리, 조회외 부가기능 제공
+//    : 스프링 빈을 관리, 조회외 부가기능 제공
 //=>스프링 프레임워크는 IoC컨테이너를 이용해 Bean객체들을 관리한다.
 
 //스프링 컨테이너 만드는 방법:xml와 annotation이 있다
@@ -70,9 +70,9 @@
 //
 //의존성주입 방법:xml, 어노테이션 사용하는 방법
 //생성자를 통한 주입, 자동주입, setter통한 주입, 컬렉션 주입..
-	
-//<constructor-arg value="spring" index="2"/>	//객체의 변수 설정
-//<constructor-arg ref="dd"/>					//참조변수 설정
+
+//<constructor-arg value="spring" index="2"/> //객체의 변수 설정
+//<constructor-arg ref="dd"/> //참조변수 설정
 
 //자동주입(이름을 통한 주입, 타입을 통한 주입, 생성자를 통해 자동주입)
 
@@ -111,6 +111,20 @@
 //생성자에 주입할 때, 타입변수들은 자동으로 주입되지만
 //기본 자료형/문자열등은 설정해줘야 한다(@Value)
 
+//@JSR-250 Annotation
+//JSR-250: 자바 플랫폼 공통 어노테이션
+
+//@PostConstruct : 생성자 호출 이후에 호출됨(자동)
+//@PreDestroy : 객체 소멸되기 전에 호출(자동)
+//@Resource : 이름을 기준으로 찾는다. 이름이 없으면 타입으로 찾는다
+//@Resource(name="빈이름") : (@Autowired+@Qualifier와 같은 효과)
+//@Component : 개발자가 직접 정의한 객체 클래스 자체를 빈 등록할 때 (이름을 부여 안하면 타입을 가져와서 등록 - 타입 같으면 주입)
+
+//객체는 Beans.java에 모두 써준다
+
+//@Bean: 같은 클래스 타입의 Bean을 여러개 등록할 경우
+// 개발자가 클래스코드를 수정할 수 없는 경우
+//@Component : 개발자가 클래스코드를 수정할 수 있는 경우
 </script>
 </body>
 </html>
