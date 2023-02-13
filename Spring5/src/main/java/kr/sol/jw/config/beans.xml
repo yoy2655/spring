@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean class="kr.sol.jw.beans.Test" id="t1">
+		<property name="s1" value="4"/>
+		<property name="s2" value="44.44"/>
+		<property name="s3" value="true"/>
+		<property name="s4" value="hi"/>
+		<property name="s5">
+		<bean class="kr.sol.jw.beans.Spring"/>
+		</property>
+		
+		<property name="s6" ref="dd"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Spring" id="dd"/>
+</beans>

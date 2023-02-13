@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+	<bean class="kr.sol.jw.beans.Test" id="t1" lazy-init="true"/>
+	
+	<bean class="kr.sol.jw.beans.Test" id="t2" lazy-init="true">
+	<constructor-arg value="400" type="int"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test" id="t3" lazy-init="true">
+	<constructor-arg value="55.11" type="double"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test" id="t4" lazy-init="true">
+	<constructor-arg value="spring"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test" id="t5" lazy-init="true">
+	<constructor-arg value="400" type="int" index="0"/>
+	<constructor-arg value="55.11" type="double" index="1"/>
+	<constructor-arg value="spring" index="2"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test2" id="t6" lazy-init="true">
+	<constructor-arg>
+		<bean class="kr.sol.jw.beans.Spring"/>
+	</constructor-arg>
+	<constructor-arg>
+		<bean class="kr.sol.jw.beans.Spring"/>
+	</constructor-arg>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Spring" id="dd" scope="prototype"/>
+	<bean class="kr.sol.jw.beans.Test2" id="t7" lazy-init="true">
+	<constructor-arg ref="dd"/>
+	<constructor-arg ref="dd"/>
+	</bean>
+</beans>

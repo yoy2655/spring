@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+	
+	<!-- xml을 로딩할때 자동으로 객체가 생성된다 -->
+	<bean class="kr.sol.jw.beans.Test"/>
+	
+	<!--  id속성에 이름적으면 getBean메소드를 통해 객체의 주소값을 받아와 사용할 수 있다 -->
+	<!--  생성된 객체는 더이상 생성되지 않는다 싱글톤이다 -->
+	<bean class="kr.sol.jw.beans.Test" id="s1"/>
+	
+	
+	<!-- lazy-init : true일때 xml로딩할 때 객체가 생성되어 지지 않고
+	getBean()를 호출할 때 객체가 생성된다. 싱글톤 
+	default(false)이면 xml을 로딩할때 객체가 생성된다-->
+	<bean class="kr.sol.jw.beans.Test" id="s2" lazy-init="true"/>
+	
+	<!-- prototype: getBean()를 호출할 때마다 새로운 객체 생성된다(싱글톤아님) -->
+	<bean class="kr.sol.jw.beans.Test" id="s3" scope="prototype"/>
+	
+</beans>

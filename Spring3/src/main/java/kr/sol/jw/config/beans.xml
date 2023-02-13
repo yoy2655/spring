@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-destroy-method="Test2_destroy"
+	default-init-method="Test2_init"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+
+	<!-- 객체 생성되고 생성자 호출되고 그 이후 init-method에 설정한 메소드가 자동으로 호출됨 IoC컨테이너의 close()메소드 
+		호출하면 객체가 소멸되면서 destroy-method에 설정한 메소드가 자동으로 호출됨 -->
+	<bean class="kr.sol.jw.beans.Test" id="s1"
+		destroy-method="Test_destroy" init-method="Test_init" />
+
+	<bean class="kr.sol.jw.beans.Test2" id="s2" lazy-init="true" />
+
+	<bean class="kr.sol.jw.beans.Test3" id="s3" lazy-init="true"
+		destroy-method="Test3_destroy" init-method="Test3_init" />
+</beans>

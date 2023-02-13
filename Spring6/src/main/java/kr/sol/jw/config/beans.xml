@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean class="kr.sol.jw.beans.Test" id="a1">
+	<property name="s1" ref="dd"/>
+	<property name="s2" ref="dd"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Spring" id="dd" scope="prototype"/>
+	
+	<bean class="kr.sol.jw.beans.Test" id="a2" autowire="byName"/>
+	<bean class="kr.sol.jw.beans.Spring" id="s1"/>
+	<bean class="kr.sol.jw.beans.Spring" id="s2"/>
+	
+	<bean class="kr.sol.jw.beans.Test2" id="a3" autowire="byType"/>
+	<bean class="kr.sol.jw.beans.Spring2" id="ddd"/>
+	
+	<bean class="kr.sol.jw.beans.Test3" id="a4">
+		<constructor-arg index="0" ref="ddd"/>
+		<constructor-arg index="1" ref="ddd"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test3" id="a5" autowire="constructor"/>
+	<bean class="kr.sol.jw.beans.Test3" id="a6">
+	<constructor-arg index="0" type="int" value="3"/>
+	<constructor-arg index="1" value="스프링"/>
+	<constructor-arg index="2" ref="ddd"/>
+	<constructor-arg index="3" ref="ddd"/>
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test3" id="a7" autowire="constructor">
+	<constructor-arg index="0" type="int" value="3"/>
+	<constructor-arg index="1" value="스프링"/>
+	</bean>
+</beans>
