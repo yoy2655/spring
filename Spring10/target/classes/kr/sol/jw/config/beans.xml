@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+
+	<context:annotation-config />
+	<bean class="kr.sol.jw.beans.Test" id="x1">
+		<property name="s1" value="4" />
+	</bean>
+	<bean class="kr.sol.jw.beans.Spring"/>
+	
+	<bean class="kr.sol.jw.beans.Spring2" id="t4"/>
+	<bean class="kr.sol.jw.beans.Spring2" id="t5"/>
+	
+	<bean class="kr.sol.jw.beans.Test2" id="x2"/>
+	<bean class="kr.sol.jw.beans.Spring3"/>
+	<bean class="kr.sol.jw.beans.Spring4"/>
+	
+	
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+
+	<bean class="kr.sol.jw.beans.Test" id="x1" lazy-init="true">
+		<constructor-arg index="0" type="int" value="44" />
+		<constructor-arg index="1" value="aa" />
+		<constructor-arg index="2" ref="dd" />
+	</bean>
+	<bean id="dd" class="kr.sol.jw.beans.Spring" />
+
+	<bean class="kr.sol.jw.beans.Test" id="x2" lazy-init="true">
+		<property name="s1" value="44" />
+		<property name="s2" value="bb" />
+		<property name="s3" ref="dd" />
+	</bean>
+	
+	<bean class="kr.sol.jw.beans.Test2" id="x3" lazy-init="true"
+		autowire="byName"/>
+		<bean id="s1" class="kr.sol.jw.beans.Spring2" />
+		<bean id="s2" class="kr.sol.jw.beans.Spring2" />
+		
+		
+		<bean class="kr.sol.jw.beans.Spring3"/>
+		<bean class="kr.sol.jw.beans.Test3" id="x4" autowire="byType"/>
+		
+</beans>
