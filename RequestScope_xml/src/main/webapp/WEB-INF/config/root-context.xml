@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="co.jw.sol.bean.SpringBean" scope="request" />
+	<bean class="co.jw.sol.bean.SpringBean2" scope="request" id="sbean2" />
+	<!--xml로 bean을 선언하고 byName으로 주입받았을 경우에만 request영역에 자동으로 저장되고(bean4)
+	나머지는 주입만 되고 request영역에 저장안된다.(bean2->그래서 Model을 쓰면 error난다 )-->
+
+</beans>
