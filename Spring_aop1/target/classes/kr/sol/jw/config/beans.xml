@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="a1" class="kr.sol.jw.beans.Test" />
+	<bean id="advisor1" class="kr.sol.jw.advisor.Ad" />
+	<!-- Ad클래스에 있는 advisor1을 참조하는 함수 m1()을 실행하겠다. beforemethod가 호출되기 전에 실행..  -->
+	
+	<aop:config>
+		<aop:aspect ref="advisor1">
+				<aop:pointcut expression="execution (* m1())" id="p1"/>
+				<aop:before method="beforemethod" pointcut-ref="p1"/>
+				<aop:after method="aftermethod" pointcut-ref="p1"/>
+				<aop:around method="aroundmethod" pointcut-ref="p1"/>
+				<aop:after-returning method="afterReturningmethod" pointcut-ref="p1"/>
+				<!-- (비즈니스) 메소드가 성공적으로 실행된 이후에 등장 -->
+				<aop:after-throwing method="afterThrowingmethod" pointcut-ref="p1"
+				throwing="e"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
